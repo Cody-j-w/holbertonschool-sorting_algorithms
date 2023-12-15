@@ -2,4 +2,4 @@
 
 ## Bubble Sort
 
-    A slow, inefficient, but easy-to-understand sorting algorithm
+A slow, inefficient, but easy-to-understand sorting algorithm
