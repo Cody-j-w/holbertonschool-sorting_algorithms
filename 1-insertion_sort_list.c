@@ -6,7 +6,7 @@
  * 
 */
 
-void insertion_sort(listint_t **list)
+void insertion_sort_list(listint_t **list)
 {
 	listint_t *sorter = NULL;
 	listint_t *temp = NULL;
