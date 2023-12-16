@@ -21,15 +21,11 @@ void insertion_sort_list(listint_t **list)
 			prev = temp->prev;
 			prev->next = next;
 			next->prev = prev;
-			printf("Prev: %d\n", prev->n);
-			printf("Next: %d\n", next->n);
 			temp->prev = NULL;
 			temp->next = NULL;
-
-			insert(&sorted_list, temp);
 			temp = next;
+			print_list(*list);
 		}
-		*list = sorted_list;
 	}
 }
 
