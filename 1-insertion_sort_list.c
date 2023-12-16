@@ -63,7 +63,6 @@ void print_lists(listint_t *sorted, listint_t *unsorted)
         ++i;
         sorted = sorted->next;
     }
-	i = 0;
 	while (unsorted)
 	{
 		if (i > 0)
