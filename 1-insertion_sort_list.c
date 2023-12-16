@@ -26,7 +26,7 @@ void insertion_sort_list(listint_t **list)
 				if (dprev != NULL)
 					printf("dprev: %d", dprev->n);
 				if (dnext != NULL)
-					printf("dnext: %d", dnext.n);
+					printf("dnext: %d", dnext->n);
 			}
 		}
 		temp = temp->next;
