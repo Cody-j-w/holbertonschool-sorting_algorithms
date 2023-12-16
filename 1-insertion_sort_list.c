@@ -14,19 +14,11 @@ void insertion_sort_list(listint_t **list)
 	{
 		if (temp->prev != NULL)
 		{
-			if (temp->prev->n > temp->n)
+			if (temp->n < temp->prev->n)
 			{
-				sorter = temp;
-				temp = temp->next;
-				while (sorter->n >= sorter->prev->n && sorter->prev != NULL)
-				{
-					prev = sorter->prev;
-					sorter->next->prev = prev;
-					sorter->prev = prev->prev;
-					prev->next = sorter;
-					sorter->next = prev;
-					print_list(*list);
-				}
+				prev = temp->prev;
+				prev->prev = temp;
+				temp->next = prev;
 			}
 		}
 		temp = temp->next;
