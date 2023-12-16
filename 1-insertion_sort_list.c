@@ -30,16 +30,18 @@ void insertion_sort_list(listint_t **list)
 			}
 		}
 	}
-	// while (temp != NULL)
-	// {
-	// 	next = temp->next;
-	// 	temp->prev = NULL;
-	// 	temp->next = NULL;
-
-	// 	insert(&sorted_list, temp);
-	// 	temp = next;
-	// }
-	// *list = sorted_list;
+	/**
+	 * while (temp != NULL)
+	 * {
+	 * 	next = temp->next;
+	 * 	temp->prev = NULL;
+	 * 	temp->next = NULL;
+	 * 
+	 * 	insert(&sorted_list, temp);
+	 * 	temp = next;
+	 * }
+	 * *list = sorted_list;
+	 */
 }
 
 void insert(listint_t **list, listint_t *node)
