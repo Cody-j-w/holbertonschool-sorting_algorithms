@@ -20,7 +20,9 @@ void insertion_sort_list(listint_t **list)
 			next = temp->next;
 			prev = temp->prev;
 			prev->next = next;
-			printf("%d\n", prev->n);
+			next->prev = prev;
+			printf("Prev: %d\n", prev->n);
+			printf("Next: %d\n", next->n);
 			temp->prev = NULL;
 			temp->next = NULL;
 
