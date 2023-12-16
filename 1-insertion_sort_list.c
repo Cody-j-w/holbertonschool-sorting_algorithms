@@ -18,7 +18,7 @@ void insertion_sort_list(listint_t **list)
 
 		insert(&sorted_list, temp);
 		temp = next;
-		print_list(sorted_list);
+		print_list(next);
 	}
 	*list = sorted_list;
 }
