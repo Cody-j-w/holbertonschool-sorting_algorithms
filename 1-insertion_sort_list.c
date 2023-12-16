@@ -19,6 +19,8 @@ void insertion_sort_list(listint_t **list)
 		{
 			next = temp->next;
 			prev = temp->prev;
+			prev->next = next;
+			printf("%d\n", prev->n);
 			temp->prev = NULL;
 			temp->next = NULL;
 
