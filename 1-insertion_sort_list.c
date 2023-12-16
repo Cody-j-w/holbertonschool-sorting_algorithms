@@ -18,7 +18,7 @@ void insertion_sort_list(listint_t **list)
 
 		insert(&sorted_list, temp);
 		temp = next;
-		print_list(next);
+		print_lists(sorted_list, next);
 	}
 	*list = sorted_list;
 }
@@ -48,4 +48,29 @@ void insert(listint_t **list, listint_t *node)
 		temp->next = node;
 		node->prev = temp;
 	}
+}
+
+void print_lists(listint_t *sorted, listint_t *unsorted)
+{
+    int i;
+
+    i = 0;
+    while (sorted)
+    {
+        if (i > 0)
+            printf(", ");
+        printf("%d", sorted->n);
+        ++i;
+        sorted = sorted->next;
+    }
+	i = 0;
+	while (unsorted)
+	{
+		if (i > 0)
+			printf(", ");
+		printf("%d", unsorted->n);
+		i++;
+		unsorted = unsorted->next;
+	}
+	printf("\n");
 }
