@@ -3,7 +3,10 @@
 #include "sort.h"
 
 /**
- * 
+ * selection_sort - sorts an array by iterating through and picking
+ * the lowest value, swapping it with the current value
+ * @array: the array beingt sorted
+ * @size: the size of the array being sorted
 */
 
 void selection_sort(int *array, size_t size)
