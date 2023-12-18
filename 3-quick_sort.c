@@ -10,7 +10,7 @@
 void quick_sort(int *array, size_t size)
 {	
 
-	int stack_size = (int)log2(size);
+	int stack_size = bitlog(size);
 	int *stack = malloc(sizeof(int) * stack_size * 2);
 	int top = -1, high, low, index;
 
@@ -61,4 +61,12 @@ int partition(int *array, int low, int high, size_t size)
 	array[j] = temp;
 	print_array(array, size);
 	return (j);
+}
+
+int bitlog(int n)
+{
+	int log = 0;
+	while (n >>= 1)
+		++log;
+	return (log);
 }
