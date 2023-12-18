@@ -7,28 +7,29 @@
  * 
 */
 
-void quick_sort(int *array, size_t size)
-{	
+void quick_sort(int *arr, size_t size)
+{
 
 	int stack_size = bitlog(size);
 	int *stack = malloc(sizeof(int) * stack_size * 2);
 	int top = -1, high, low, index;
 
 	stack[++top] = 0;
-	stack[++top] = (int)size - 1;
-	while (top >= 0)
-	{
+	stack[++top] = size - 1;
+	while (top >= 0) {
+
 		high = stack[top--];
 		low = stack[top--];
-		index = partition(array, low, high, size);
 
-		if (index - 1 > low)
-		{
+
+		index = partition(arr, low, high, size);
+
+
+		if (index - 1 > low) {
 			stack[++top] = low;
 			stack[++top] = index - 1;
 		}
-		if (index - 1 < high)
-		{
+		if (index + 1 < high) {
 			stack[++top] = index + 1;
 			stack[++top] = high;
 		}
