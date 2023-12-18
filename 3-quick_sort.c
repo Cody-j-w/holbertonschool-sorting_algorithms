@@ -8,7 +8,29 @@
 
 void quick_sort(int *array, size_t size)
 {
-	sort(array, 0, size - 1, size);
+	int stack = malloc(sizeof(int) * (int)size);
+	int top = -1, high, low, index;
+
+	stack[++top] = 0;
+	stack[++top] = (int)size - 1;
+	while (top >= 0)
+	{
+		high = stack[top--];
+		low = stack[top--];
+		index = partition(array, low, high, size);
+
+		if (index - 1 > low)
+		{
+			stack[++top] = low;
+			stack[++top] = index - 1;
+		}
+		if (index - 1 < high)
+		{
+			stack[++top] = index + 1;
+			stack[++top] = high;
+		}
+	}
+	free(stack);
 }
 
 int partition(int *array, int low, int high, size_t size)
@@ -24,23 +46,12 @@ int partition(int *array, int low, int high, size_t size)
 			n++;
 			array[i] = array[n];
 			array[n] = temp;
+			print_array(array, size);
 		}
 	}
 	temp = array[n + 1];
 	array[n + 1] = array[high];
 	array[high] = temp;
+	print_array(array, size);
 	return (n + 1);
-}
-
-void sort(int *arr, int low, int high, size_t size)
-{
-	int set_partition;
-
-	if (low < high)
-	{
-		set_partition = partition(arr, low, high, size);
-		print_array(arr, size);
-		sort(arr, low, set_partition - 1, size);
-		sort(arr, set_partition + 1, high, size);
-	}
 }
