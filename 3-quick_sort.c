@@ -8,10 +8,10 @@
 
 void quick_sort(int *array, size_t size)
 {
-	sort(array, 0, size - 1);
+	sort(array, 0, size - 1, size);
 }
 
-int partition(int *array, int low, int high)
+int partition(int *array, int low, int high, size_t size)
 {
 	int pivot = array[high];
 	int n = low - 1, i, temp;
@@ -24,7 +24,7 @@ int partition(int *array, int low, int high)
 			n++;
 			array[i] = array[n];
 			array[n] = temp;
-			print_array(array);
+			print_array(array, size);
 		}
 	}
 	temp = array[n + 1];
@@ -33,14 +33,14 @@ int partition(int *array, int low, int high)
 	return (n + 1);
 }
 
-void sort(int *arr, int low, int high)
+void sort(int *arr, int low, int high, size_t size)
 {
 	int set_partition;
 
 	if (low < high)
 	{
-		set_partition = partition(arr, low, high);
-		sort(arr, low, set_partition - 1);
-		sort(arr, set_partition + 1, high);
+		set_partition = partition(arr, low, high, size);
+		sort(arr, low, set_partition - 1, size);
+		sort(arr, set_partition + 1, high, size);
 	}
 }
