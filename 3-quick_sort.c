@@ -8,7 +8,7 @@
 
 void quick_sort(int *array, size_t size)
 {
-	int *stack = malloc(sizeof(int) * (int)size);
+	int stack[size];
 	int top = -1, high, low, index;
 
 	stack[++top] = 0;
