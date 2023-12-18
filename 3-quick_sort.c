@@ -10,7 +10,7 @@
 void quick_sort(int *array, size_t size)
 {	
 
-	int stack_size = ((int)log(size) / (int)log(2)) + 1;
+	int stack_size = (int)log2(size);
 	int *stack = malloc(sizeof(int) * stack_size * 2);
 	int top = -1, high, low, index;
 
