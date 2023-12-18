@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <math.h>
 #include "sort.h"
 
 /**
@@ -8,7 +9,8 @@
 
 void quick_sort(int *array, size_t size)
 {
-	int stack[size];
+	size_t stack_size = log2(size) +1;
+	int *stack = malloc(sizeof(int) * (int)stack_size * 2);
 	int top = -1, high, low, index;
 
 	stack[++top] = 0;
