@@ -40,7 +40,7 @@ void sort(int *array, int low, int high, size_t size)
 		index = partition(array, low, high, size);
 
 		sort(array, low, index - 1, size);
-		sort(array, index + 1, high);
+		sort(array, index + 1, high, size);
 	}
 }
 
