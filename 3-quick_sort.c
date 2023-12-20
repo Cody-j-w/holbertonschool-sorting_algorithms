@@ -9,7 +9,7 @@
  * @low: the first index
  * @high: the last index
  * @size: the size of the array
- * 
+ *
  * Return: the index of the partition
 */
 
