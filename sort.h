@@ -24,6 +24,7 @@ void selection_sort(int *, size_t);
 void quick_sort(int *, size_t);
 void insert(listint_t **, listint_t *);
 int partition(int *, int, int, size_t);
-int bitlog(int);
+void sort(int *, int, int, size_t);
+
 
 #endif

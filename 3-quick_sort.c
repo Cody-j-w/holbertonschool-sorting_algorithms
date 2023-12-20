@@ -7,67 +7,47 @@
  * 
 */
 
-void quick_sort(int *arr, size_t size)
-{
-
-	int stack_size = bitlog(size);
-	int *stack = malloc(sizeof(int) * stack_size * 2);
-	int top = -1, high, low, index;
-
-	stack[++top] = 0;
-	stack[++top] = size - 1;
-	while (top >= 0) {
-
-		high = stack[top--];
-		low = stack[top--];
-
-
-		index = partition(arr, low, high, size);
-
-
-		if (index - 1 > low) {
-			stack[++top] = low;
-			stack[++top] = index - 1;
-		}
-		if (index + 1 < high) {
-			stack[++top] = index + 1;
-			stack[++top] = high;
-		}
-	}
-	free(stack);
-}
 
 int partition(int *array, int low, int high, size_t size)
 {
-	int pivot = array[low];
-	int i = low, j = high, temp;
+	int pivot = array[high];
+	int i = (low - 1), j;
 
-	while (i < j)
+	for (j = low; j <= high - 1; j++)
 	{
-		while (array[i] <= pivot && i <= high - 1)
-			i++;
-		while (array[j] > pivot && j >= low +1)
-			j--;
-
-		if (i < j)
+		if (array[j] <= pivot)
 		{
+			i++;
 			temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
 			print_array(array, size);
 		}
 	}
-	temp = array[low];
-	array[low] = array[j];
-	array[j] = temp;
+	temp = array[high];
+	array[high] = array[i + 1];
+	array[i + 1] = temp;
 	print_array(array, size);
-	return (j);
+	return (i + 1);
 }
 
-int bitlog(int n)
+void sort(int *array, int low, int high, size_t size)
 {
-	int log = 0;
-	while (n >>= 1)
-		++log;
-	return (log);
+	int index;
+
+	if (low < high)
+	{
+		index = partition(array, low, high, size);
+
+		sort(arr, low, index - 1, size);
+		sort(arr, index + 1, high);
+	}
+}
+
+void quick_sort(int *arr, size_t size)
+{
+
+	int high = size - 1, low = 0;
+
+	sort(arr, low, high, size);
 }
