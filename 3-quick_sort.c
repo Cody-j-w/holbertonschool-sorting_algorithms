@@ -29,7 +29,7 @@ int partition(int *array, int low, int high, size_t size)
 			array[j] = temp;
 		}
 	}
-	if (array[high] != array[i+1])
+	if (array[high] != array[i + 1])
 	{
 		temp = array[high];
 		array[high] = array[i + 1];
@@ -62,7 +62,7 @@ void sort(int *array, int low, int high, size_t size)
 
 /**
  * quick_sort - calls sort to recursively sort an array
- * @array: the array to be sorted
+ * @arr: the array to be sorted
  * @size: the size of the array
 */
 
