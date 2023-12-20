@@ -21,15 +21,14 @@ int partition(int *array, int low, int high, size_t size)
 			temp = array[i];
 			array[i] = array[j];
 			array[j] = temp;
+			print_array(array, size);
 		}
 	}
-	if (array[high] != array[i+1])
-	{
-		temp = array[high];
-		array[high] = array[i + 1];
-		array[i + 1] = temp;
-		print_array(array, size);
-	}
+
+	temp = array[high];
+	array[high] = array[i + 1];
+	array[i + 1] = temp;
+
 	return (i + 1);
 }
 
