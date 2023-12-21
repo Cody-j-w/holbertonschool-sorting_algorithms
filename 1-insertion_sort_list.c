@@ -16,10 +16,11 @@ void insertion_sort_list(listint_t **list)
 		prev = temp->prev;
 		while (temp->n < prev->n)
 		{
-			pull(list, temp, prev);
-			swap(list, temp, prev);
+			pull(temp, prev);
+			swap(temp, prev);
 			print_list(*list);
 		}
+		temp = next;
 	}
 }
 
