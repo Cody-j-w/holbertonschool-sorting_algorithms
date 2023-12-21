@@ -24,7 +24,7 @@ void insertion_sort_list(listint_t **list)
 	}
 }
 
-void swap(listint_t **list, listint_t *node, listint_t *current)
+void swap(listint_t *node, listint_t *current)
 {
 	listint_t *temp = NULL, *prev = current->prev;
 
@@ -35,7 +35,7 @@ void swap(listint_t **list, listint_t *node, listint_t *current)
 		prev->next = temp;
 }
 
-void pull(listint_t **list, listint_t *node, listint_t *prev)
+void pull(listint_t *node, listint_t *prev)
 {
 	prev->next = node->next;
 	if (node->next != NULL)
