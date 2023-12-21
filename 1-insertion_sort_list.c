@@ -26,13 +26,13 @@ void insertion_sort_list(listint_t **list)
 
 void swap(listint_t *node, listint_t *current)
 {
-	listint_t *temp = NULL, *prev = current->prev;
+	listint_t *prev = current->prev;
 
-	temp->next = current;
-	temp->prev = prev;
-	current->prev = temp;
-	if (temp->prev != NULL)
-		prev->next = temp;
+	node->next = current;
+	node->prev = prev;
+	current->prev = node;
+	if (node->prev != NULL)
+		prev->next = node;
 }
 
 void pull(listint_t *node, listint_t *prev)
